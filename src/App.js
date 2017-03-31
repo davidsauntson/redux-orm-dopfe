@@ -7,7 +7,11 @@ import BooksContainer from './containers/BooksContainer';
 class App extends Component {
   render() {
     return (
-        <BooksContainer />
+    	<div>
+	        <BooksContainer publisherId={1} />
+	        <BooksContainer publisherId={2} />
+	        <BooksContainer publisherId={3} />
+        </div>
     );
   }
 }

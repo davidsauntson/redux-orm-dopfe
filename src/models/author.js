@@ -1,4 +1,4 @@
-import {attr, Model} from 'redux-orm';
+import {attr, Model, many} from 'redux-orm';
 
 class Author extends Model {
 	static reducer(action, Author, session) {
@@ -27,7 +27,7 @@ Author.modelName = 'Author';
 
 Author.fields = {
 	id: attr(),
-	name: attr()
+	name: attr(),
 }
 
 export default Author;

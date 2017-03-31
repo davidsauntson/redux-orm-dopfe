@@ -5,9 +5,9 @@ import Books from '../components/books';
 import {myBooks} from '../selectors/selectors';
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
 	return {
-		books: myBooks(state)
+		books: myBooks(state, ownProps)
 	};
 }
 

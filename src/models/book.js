@@ -1,4 +1,4 @@
-import {fk, many, attr, Model} from 'redux-orm';
+import {fk, attr, Model} from 'redux-orm';
 
 class Book extends Model {
 	static reducer(action, Book, session) {
@@ -22,8 +22,8 @@ Book.modelName = 'Book';
 Book.fields = {
 	id: attr(),
 	title: attr(),
-	authors: many('Author'),
-	publisher: fk('Publisher'),
+	authors: fk('Author', 'books'),
+	publisher: fk('Publisher', 'books'),
 };
 
 export default Book;
