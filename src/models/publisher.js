@@ -1,4 +1,4 @@
-import {fk, many, attr, Model} from 'redux-orm';
+import {attr, Model} from 'redux-orm';
 
 class Publisher extends Model {
 	static reducer(action, Publisher, session) {
@@ -8,12 +8,16 @@ class Publisher extends Model {
 				books.map(book => {
 					const publisher = book.publisher;
 					if (!Publisher.hasId(publisher.id)) {
-						Publisher.create(publisher);
+						return Publisher.create(publisher);
 					}
 				});
 
 				break;
+
+			default:
 		}
+
+		return undefined;
 	}
 };
 

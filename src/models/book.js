@@ -6,11 +6,14 @@ class Book extends Model {
 			case "DATA_LOADED": 
 				const { books } = action.payload;
 				books.map(book => {
-					Book.create(book);
+					return Book.create(book);
 				});
-
 				break;
+
+			default:
 		}
+
+		return undefined;
 	}
 };
 

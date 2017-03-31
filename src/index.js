@@ -5,7 +5,7 @@ import './index.css';
 
 import {loadMockData} from './actions/actions';
 import thunkMiddleware from 'redux-thunk';
-import orm from './orm/orm';
+
 import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './reducers/rootReducer'; 
 

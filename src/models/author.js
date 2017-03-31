@@ -1,4 +1,4 @@
-import {fk, many, attr, Model} from 'redux-orm';
+import {attr, Model} from 'redux-orm';
 
 class Author extends Model {
 	static reducer(action, Author, session) {
@@ -9,13 +9,17 @@ class Author extends Model {
 				books.map(book => {
 					book.authors.map(author => {
 						if (!Author.hasId(author.id)) {
-							Author.create(author);
+							return Author.create(author);
 						}
 					})
-				})
+				});
 
 				break;
+
+			default:
 		}
+
+		return undefined;
 	}
 };
 
