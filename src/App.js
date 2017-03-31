@@ -10,7 +10,6 @@ class App extends Component {
     	<div>
 	        <BooksContainer publisherId={1} />
 	        <BooksContainer publisherId={2} />
-	        <BooksContainer publisherId={3} />
         </div>
     );
   }
