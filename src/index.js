@@ -5,7 +5,7 @@ import './index.css';
 
 import {loadMockData} from './actions/actions';
 import thunkMiddleware from 'redux-thunk';
-
+import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './reducers/rootReducer'; 
 
@@ -22,6 +22,9 @@ store.dispatch(loadMockData());
 
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+	<Provider store={store}>
+  		<App />
+	</Provider>
+
+	, document.getElementById('root')
 );
