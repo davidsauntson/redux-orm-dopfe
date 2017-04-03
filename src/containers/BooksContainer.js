@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import Books from '../components/books';
+import BookCollection from '../components/BookCollection';
 import {myBooks} from '../selectors/selectors';
 
 
@@ -12,6 +12,6 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 
-let BooksContainer = connect(mapStateToProps)(Books);
+let BookCollectionContainer = connect(mapStateToProps)(BookCollection);
 
-export default BooksContainer;
+export default BookCollectionContainer;
