@@ -7,9 +7,45 @@ export const myBooks = createSelector(
 		ormCreateSelector(orm, session => { 
 			return session.Book.all().toModelArray().map(book => {
 				const obj = Object.assign({}, book.ref)
-
 				return Object.assign({}, obj)
 			});
 		})
 	);
+
+
+const selectedPublisherSelector = state => state.selectedPublisher.id;
+
+export const myBooksForPublisher = createSelector(
+		state => state.orm, 
+		selectedPublisherSelector,
+		ormCreateSelector(orm, (session, publisherId) => { 
+			return session.Book.all().filter(book => book.publisher.id == publisherId).toModelArray().map(book => {
+				const obj = Object.assign({}, book.ref)
+				return Object.assign({}, obj);
+			});
+		})
+	);
+
+
+export const authors = createSelector(
+		state => state.orm,
+		ormCreateSelector(orm, session => {
+			return session.Author.all().toModelArray().map(author => {
+				const obj = Object.assign({}, author.ref);
+				return Object.assign({}, obj);
+			})
+		})
+	);
+
+
+export const myPublishers = createSelector(
+		state => state.orm,
+		ormCreateSelector(orm, session => {
+			return session.Publisher.all().toModelArray().map(publisher => {
+				const obj = Object.assign({}, publisher.ref);
+				return Object.assign({}, obj);
+			})
+		})
+	);
+
 

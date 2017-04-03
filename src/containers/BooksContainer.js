@@ -2,12 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import BookCollection from '../components/BookCollection';
-import {myBooks} from '../selectors/selectors';
+import {myBooksForPublisher} from '../selectors/selectors';
 
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		books: myBooks(state, ownProps)
+		books: myBooksForPublisher(state, ownProps),
+		publisherId: state.selectedPublisher.id
 	};
 }
 

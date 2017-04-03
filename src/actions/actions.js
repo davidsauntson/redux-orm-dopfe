@@ -10,3 +10,10 @@ export function loadMockData() {
 		});
 	}
 }
+
+export function updateSelectedPublisher(publisherId) {
+	return {
+		type: "SELECTED_PUBLISHER_UPDATED",
+		payload: publisherId
+	}
+}
