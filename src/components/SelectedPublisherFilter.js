@@ -19,6 +19,7 @@ class SelectedPublisherFilter extends React.Component {
 
 		return (
 			<select onChange={this.handleSelectedPublisherChange}>
+				<option value={-1}>All</option>
 				{publishers.map(publisher => {
 					return (
 						<option key={publisher.id} value={publisher.id}>{publisher.name}</option>

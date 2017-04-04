@@ -5,12 +5,20 @@ import Book from './book';
 class BookCollection extends React.Component {
 
 	render() {
-		console.log(this.props);
+		const {books, publisherId, selectedPublisherId} = this.props;
+		const styles = {
+			border: publisherId === selectedPublisherId ? "1px solid red": "1px solid transparent"
+		};
+
 		return (
-			<div>
-				<h1>Books by publisher {this.props.publisherId}</h1>
-				{this.props.books.map(book => {
-					return <Book key={book.id} book={book} />
+			<div style={styles}>
+				<h1>Books by publisher {publisherId}</h1>
+				{books.map(book => {
+					if (book.publisher.id === publisherId) {
+						return (
+							<Book book={book} key={book.id} />
+						)
+					}
 				})}
 			</div>
 		)

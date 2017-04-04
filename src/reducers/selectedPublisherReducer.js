@@ -1,4 +1,4 @@
-const initialState = { id: 1};
+const initialState = {id: -1};
 
 export function selectedPublisher(state = initialState, action) {
 	switch (action.type) {

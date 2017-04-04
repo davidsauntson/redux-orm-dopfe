@@ -15,6 +15,8 @@ export const myBooks = createSelector(
 
 const selectedPublisherSelector = state => state.selectedPublisher.id;
 
+const publisherId = (state, props) => props.publisherId;
+
 export const myBooksForPublisher = createSelector(
 		state => state.orm, 
 		selectedPublisherSelector,
@@ -26,6 +28,16 @@ export const myBooksForPublisher = createSelector(
 		})
 	);
 
+export const myBooksForSpecifiedPublisher = createSelector(
+		state => state.orm, 
+		publisherId,
+		ormCreateSelector(orm, (session, publisherId) => { 
+			return session.Book.all().filter(book => book.publisher.id == publisherId).toModelArray().map(book => {
+				const obj = Object.assign({}, book.ref)
+				return Object.assign({}, obj);
+			});
+		})
+	);
 
 export const authors = createSelector(
 		state => state.orm,
