@@ -15,7 +15,7 @@ Two branches reflect how the technologies will be used for two different parts o
       - list out the sessions for each location using a dynamically created list of containers, whose properties are passed into a custom selector to retreive all sessions at that location
       - highlight sessions that match the currently selected stream using styles and the `selectedStreamId` stored in the state
   - **`show-selected-publishers`** shows how we will
-      -  filtering sessions belonging to the selected day using the `selectedDayId` stored in the state
+      -  filter sessions belonging to the selected day using the `selectedDayId` stored in the state
       
 ### Objects
   - `Publisher` &rarr; `Location`
