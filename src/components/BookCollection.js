@@ -14,12 +14,11 @@ class BookCollection extends React.Component {
 			<div style={styles}>
 				<h1>Books by publisher {publisherId}</h1>
 				{books.map(book => {
-					if (book.publisher.id === publisherId) {
-						return (
+					return (
 							<Book book={book} key={book.id} />
 						)
 					}
-				})}
+				)}
 			</div>
 		)
 	}
